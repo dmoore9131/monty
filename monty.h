@@ -2,6 +2,8 @@
 #define MONTY_H
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct stack_s
 {
@@ -15,9 +17,7 @@ extern struct
 } data;
 
 void parse_line(char *line);
-void execute_opcode(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t **stack);
-void push_stack(stack_t **stack, int value);
+int count_words(char **words);
 
 #endif /* MONTY_H */
 
