@@ -2,6 +2,7 @@
 #define MONTY_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -14,9 +15,9 @@
  */
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+        int n;
+        struct stack_s *prev;
+        struct stack_s *next;
 } stack_t;
 
 /**
@@ -29,29 +30,23 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+        char *opcode;
+        void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* Function prototypes for your opcodes */
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void sub(stack_t **stack, unsigned int line_number);
-void custom_div(stack_t **stack, unsigned int line_number);  // Modified function name
-void mul(stack_t **stack, unsigned int line_number);
-void mod(stack_t **stack, unsigned int line_number);
-void custom_comments(stack_t **stack, unsigned int line_number);  // Modified function name
-void pchar(stack_t **stack, unsigned int line_number);
-void pstr(stack_t **stack, unsigned int line_number);
-void rotl(stack_t **stack, unsigned int line_number);
-void rotr(stack_t **stack, unsigned int line_number);
-void stack_op(stack_t **stack, unsigned int line_number);
-void queue_op(stack_t **stack, unsigned int line_number);
+/**
+ * push - Pushes an element onto the stack
+ * @stack: Pointer to the stack
+ * @line_number: Line number in the Monty file
+ */
+void push(stack_t **stack, int line_number);
+
+/**
+ * is_numeric - Checks if a string is a numeric value
+ * @str: String to check
+ * Return: 1 if numeric, 0 otherwise
+ */
+int is_numeric(char *str);
 
 #endif /* MONTY_H */
 
